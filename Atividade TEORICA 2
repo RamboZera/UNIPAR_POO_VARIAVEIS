@@ -1,0 +1,14 @@
+A orientação a objetos oferece várias vantagens em comparação com paradigmas de programação procedural, como o paradigma estruturado.
+Reutilização de código: A orientação a objetos promove a reutilização de código através do conceito de herança, onde as classes podem herdar atributos e métodos de outras classes. Isso reduz a redundância e aumenta a eficiência no desenvolvimento de software.
+
+Modularidade: A orientação a objetos permite que o software seja dividido em módulos independentes, ou seja, classes. Cada classe representa uma unidade coesa de funcionalidade, o que facilita a manutenção e a extensão do sistema, já que mudanças em uma classe não afetam necessariamente outras partes do código.
+
+Encapsulamento: O encapsulamento permite ocultar os detalhes de implementação de um objeto e expor apenas uma interface pública. Isso protege os dados de serem acessados e modificados de maneira não autorizada e ajuda a reduzir o acoplamento entre diferentes partes do código.
+
+Abstração: A abstração permite modelar entidades do mundo real de uma forma simplificada no software, focando apenas nos aspectos relevantes para o problema em questão. Isso facilita a compreensão do sistema e torna o código mais flexível e adaptável a mudanças.
+
+Polimorfismo: O polimorfismo permite escrever código mais genérico e flexível, onde objetos de diferentes classes podem responder ao mesmo método de forma diferente. Isso promove a extensibilidade do software e facilita a implementação de novos recursos sem alterar o código existente.
+
+Facilidade de manutenção: Devido à sua natureza modular e encapsulada, a orientação a objetos torna o software mais fácil de entender, manter e debugar. Mudanças em uma parte do sistema geralmente têm um impacto limitado em outras partes, o que reduz o risco de introduzir novos bugs.
+
+Em resumo, a orientação a objetos oferece uma série de vantagens que tornam o desenvolvimento de software mais eficiente, modular, flexível e fácil de manter em comparação com paradigmas de programação procedural.
