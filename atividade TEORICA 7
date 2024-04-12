@@ -1,0 +1,17 @@
+Acoplamento:
+
+Definição: Acoplamento refere-se ao grau de interdependência entre módulos ou componentes de um sistema. Um alto acoplamento indica uma forte dependência entre os módulos, enquanto um baixo acoplamento indica uma fraca dependência.
+
+Tratamento na OO: Na orientação a objetos, o acoplamento é reduzido através do uso de princípios como encapsulamento, abstração e polimorfismo. O encapsulamento limita o acesso direto aos atributos de um objeto, reduzindo a dependência entre os objetos. A abstração permite que os objetos interajam entre si através de interfaces bem definidas, sem dependerem de detalhes de implementação. O polimorfismo permite que objetos de diferentes classes sejam tratados de maneira uniforme, reduzindo a dependência em classes específicas.
+
+Importância: Um baixo acoplamento é importante porque torna o sistema mais flexível e fácil de modificar. Quando os módulos estão fracamente acoplados, as mudanças em um módulo têm um impacto mínimo nos outros módulos, facilitando a manutenção e a evolução do sistema ao longo do tempo.
+
+Coesão:
+
+Definição: Coesão refere-se ao grau em que os elementos dentro de um módulo ou componente estão relacionados entre si. Uma alta coesão indica que os elementos dentro do módulo estão fortemente relacionados e trabalham juntos para realizar uma única tarefa, enquanto uma baixa coesão indica que os elementos estão fraca ou aleatoriamente relacionados.
+
+Tratamento na OO: Na orientação a objetos, a coesão é promovida através da criação de classes e métodos que representam entidades ou funcionalidades relacionadas de forma coesa. Isso é alcançado através da identificação de responsabilidades claras para cada classe e método e da organização deles de forma lógica e coesa.
+
+Importância: Uma alta coesão é importante porque torna os módulos mais fáceis de entender, manter e reutilizar. Quando os elementos dentro de um módulo estão fortemente relacionados e trabalham juntos para realizar uma única tarefa, o código é mais claro, menos propenso a erros e mais fácil de modificar e estender.
+
+Em resumo, os conceitos de acoplamento e coesão são essenciais na orientação a objetos para criar sistemas de software bem projetados e de alta qualidade. Um baixo acoplamento e uma alta coesão tornam o código mais flexível, modular, compreensível e fácil de manter ao longo do tempo.
