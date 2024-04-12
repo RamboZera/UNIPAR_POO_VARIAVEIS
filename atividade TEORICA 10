@@ -1,0 +1,57 @@
+Os modificadores de acesso "public", "private" e "protected" em uma classe definem o nível de visibilidade dos membros (atributos e métodos) dessa classe para outras partes do programa. Aqui está a diferença entre eles:
+
+Public:
+
+Os membros marcados como "public" são acessíveis de qualquer lugar, dentro ou fora da classe, por qualquer parte do programa.
+Não há restrições quanto ao acesso aos membros públicos.
+Exemplo:
+
+
+public class MinhaClasse {
+    public int atributoPublico;
+    public void metodoPublico() {
+        // Corpo do método
+    }
+}
+
+
+Private:
+
+Os membros marcados como "private" são acessíveis apenas dentro da própria classe.
+Eles não podem ser acessados ou modificados por partes do programa que estejam fora da classe.
+O encapsulamento é promovido, pois os detalhes de implementação são ocultados.
+Exemplo:
+
+
+public class MinhaClasse {
+    private int atributoPrivado;
+    private void metodoPrivado() {
+        // Corpo do método
+    }
+}
+
+
+Protected:
+
+Os membros marcados como "protected" são acessíveis dentro da própria classe, por subclasses (classes que herdam da classe atual) e por outras classes no mesmo pacote.
+Eles não são acessíveis por partes do programa que não estejam na classe ou nas suas subclasses.
+É útil para permitir o acesso controlado a membros para subclasses.
+Exemplo:
+
+
+public class MinhaClasse {
+    protected int atributoProtegido;
+    protected void metodoProtegido() {
+        // Corpo do método
+    }
+}
+
+
+
+m resumo, os modificadores de acesso "public", "private" e "protected" controlam a visibilidade dos membros de uma classe, determinando quem pode acessá-los e de onde. Eles desempenham um papel importante na segurança, encapsulamento e extensibilidade do código em programação orientada a objetos.
+
+
+
+
+
+
