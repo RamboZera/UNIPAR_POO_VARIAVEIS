@@ -1,0 +1,37 @@
+Definição:
+
+Métodos de instância: São métodos que operam em instâncias específicas da classe. Eles têm acesso aos atributos e métodos não estáticos da classe e podem ser chamados apenas em uma instância da classe.
+
+Métodos estáticos: São métodos que não operam em instâncias específicas da classe. Eles não têm acesso aos atributos de instância e podem ser chamados diretamente na classe, sem a necessidade de criar uma instância da classe.
+
+Acesso aos atributos:
+
+Métodos de instância: Têm acesso aos atributos de instância da classe, ou seja, os valores específicos de cada objeto criado a partir da classe.
+
+Métodos estáticos: Não têm acesso aos atributos de instância da classe. Eles só podem acessar membros estáticos (atributos e métodos estáticos) da classe.
+
+Forma de chamada:
+
+Métodos de instância: São chamados em uma instância específica da classe, utilizando a notação de ponto (objeto.método()).
+
+Métodos estáticos: São chamados diretamente na classe, sem a necessidade de criar uma instância da classe, utilizando o nome da classe (Classe.metodo()).
+
+Uso:
+
+Métodos de instância: São usados quando a operação realizada depende do estado específico de um objeto.
+
+Métodos estáticos: São usados quando a operação realizada não depende do estado específico de um objeto e pode ser aplicada independentemente de qualquer instância da classe.
+
+Contexto:
+
+Métodos de instância: São usados para manipular ou interagir com os atributos de um objeto específico.
+
+Métodos estáticos: São usados para implementar funcionalidades que não estão diretamente relacionadas ao estado de um objeto específico, como operações utilitárias ou cálculos independentes de instância.
+
+Em resumo, os métodos de instância são associados a instâncias específicas da classe e têm acesso aos atributos de instância, enquanto os métodos estáticos não dependem de instâncias específicas e podem ser chamados diretamente na classe, sem acesso aos atributos de instância. Cada tipo de método tem seu próprio contexto de uso e aplicação.
+
+
+
+
+
+
