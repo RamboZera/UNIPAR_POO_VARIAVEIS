@@ -1,0 +1,28 @@
+Os construtores e métodos são elementos fundamentais em uma classe na programação orientada a objetos (POO). Eles desempenham papéis importantes na criação, inicialização e manipulação de objetos. 
+Construtores:
+
+Inicialização: Os construtores são métodos especiais que são chamados automaticamente quando um objeto é criado a partir de uma classe. Eles são usados para inicializar os atributos do objeto com valores padrão ou valores fornecidos pelo usuário.
+
+Garantir consistência: Os construtores garantem que os objetos sejam inicializados de forma consistente, garantindo que todos os atributos necessários tenham valores válidos desde o início.
+
+Encapsulamento: Os construtores podem ser usados para definir regras de inicialização, garantindo que os objetos sejam criados de acordo com as regras de negócios da classe e mantendo a integridade dos dados.
+
+Métodos:
+
+Comportamento: Os métodos definem o comportamento dos objetos. Eles representam as ações que um objeto pode realizar ou as operações que podem ser realizadas com o objeto.
+
+Encapsulamento: Os métodos são usados para encapsular a lógica de processamento relacionada a um objeto. Isso significa que a implementação interna de um método pode ser alterada sem afetar a forma como os usuários interagem com o objeto.
+
+Reutilização de código: Os métodos promovem a reutilização de código, permitindo que a mesma lógica de processamento seja aplicada a diferentes objetos. Isso leva a um código mais limpo e modular.
+
+Abstração: Os métodos ajudam a abstrair os detalhes de implementação, permitindo que os usuários se concentrem apenas na funcionalidade oferecida pelo objeto sem se preocupar com os detalhes internos de como essa funcionalidade é implementada.
+
+Polimorfismo: Os métodos podem ser sobrescritos em subclasses para fornecer comportamentos específicos para essas subclasses. Isso permite o polimorfismo, onde objetos de diferentes classes podem responder ao mesmo método de maneiras diferentes.
+
+Em resumo, os construtores e métodos são essenciais em uma classe de POO, pois permitem a criação, inicialização, manipulação e comportamento dos objetos, promovendo encapsulamento, reutilização de código, abstração e polimorfismo. Eles são fundamentais para criar software modular, flexível e fácil de entender e manter.
+
+
+
+
+
+
