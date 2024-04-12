@@ -1,0 +1,11 @@
+O encapsulamento é um dos princípios fundamentais da programação orientada a objetos e refere-se à ideia de ocultar os detalhes de implementação de um objeto e expor apenas uma interface pública através da qual outros objetos podem interagir com ele. Isso significa que os dados dentro do objeto (os atributos) são protegidos do acesso direto e só podem ser manipulados através de métodos específicos (os métodos acessores) fornecidos pela classe.
+
+Em linguagens de programação orientadas a objetos, o encapsulamento é implementado usando modificadores de acesso, como "public", "private" e "protected". Aqui está uma explicação de como esses modificadores funcionam:
+
+Public: Atributos e métodos marcados como "public" são acessíveis a partir de qualquer lugar no programa. Isso significa que eles podem ser acessados e modificados diretamente por qualquer outro objeto.
+
+Private: Atributos e métodos marcados como "private" são acessíveis apenas dentro da própria classe. Isso significa que eles não podem ser acessados ou modificados diretamente por objetos de outras classes. Geralmente, métodos acessores públicos são fornecidos para permitir o acesso controlado aos atributos privados.
+
+Protected: Atributos e métodos marcados como "protected" são semelhantes aos atributos e métodos privados, mas também podem ser acessados por subclasses (classes que herdam da classe atual).
+
+Por meio do encapsulamento, os detalhes de implementação de um objeto são ocultados, o que ajuda a proteger a integridade dos dados e a reduzir o acoplamento entre diferentes partes do código. Além disso, o encapsulamento facilita a manutenção do código, pois as mudanças internas em um objeto não afetam diretamente outros objetos que dependem dele, desde que a interface pública permaneça inalterada. Isso promove uma abordagem mais modular e flexível para o desenvolvimento de software.
