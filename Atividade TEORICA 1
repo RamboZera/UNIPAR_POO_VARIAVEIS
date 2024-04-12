@@ -1,0 +1,16 @@
+
+A orientação a objetos é um paradigma de programação que organiza o código em torno de "objetos", que são instâncias de classes. Cada objeto possui atributos (dados) e métodos (funções) que operam nesses dados. Esse paradigma permite modelar entidades do mundo real de uma forma mais natural e modular, facilitando o desenvolvimento e manutenção de software.
+
+Os princípios fundamentais da orientação a objetos incluem:
+
+Abstração: O processo de identificar as características essenciais de um objeto e ignorar as características irrelevantes. Isso permite modelar entidades do mundo real de forma simplificada no software.
+
+Encapsulamento: É a técnica de esconder os detalhes de implementação de um objeto e expor apenas uma interface pública para interagir com ele. Isso ajuda a manter a integridade dos dados e a reduzir o acoplamento entre diferentes partes do código.
+
+Herança: Permite que uma classe (subclasse) herde atributos e métodos de outra classe (superclasse). Isso promove a reutilização de código e a criação de uma hierarquia de classes, onde as subclasses podem estender ou especializar o comportamento da superclasse.
+
+Polimorfismo: Refere-se à capacidade de objetos de diferentes classes responderem ao mesmo método de forma diferente. Isso permite escrever código mais genérico e flexível, onde diferentes objetos podem ser tratados de maneira uniforme, independentemente de sua classe específica.
+
+Associação: É uma relação entre duas classes que indica que um objeto de uma classe está relacionado a um objeto de outra classe de alguma forma. Pode ser uma relação de dependência, agregação ou composição, e é fundamental para modelar a estrutura e o comportamento de sistemas complexos.
+
+Esses princípios ajudam a criar software modular, extensível, e mais fácil de entender e manter ao longo do tempo.
