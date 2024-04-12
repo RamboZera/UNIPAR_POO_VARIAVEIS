@@ -1,0 +1,65 @@
+Em programação orientada a objetos (POO), a passagem de parâmetros em métodos de uma classe pode ocorrer de diversas maneiras, dependendo da linguagem de programação e das características específicas do método e dos parâmetros. Aqui estão algumas das formas mais comuns de passagem de parâmetros em métodos de uma classe:
+
+Passagem por valor: Nesse tipo de passagem de parâmetro, o valor do argumento é copiado para o parâmetro do método. Qualquer modificação feita no parâmetro dentro do método não afeta o argumento original. Esse é o comportamento padrão em muitas linguagens de programação. Exemplo em Java:
+
+
+public class MyClass {
+    public void myMethod(int x) {
+        x = x * 2; // Modifica apenas o parâmetro
+    }
+
+    public static void main(String[] args) {
+        int number = 5;
+        MyClass obj = new MyClass();
+        obj.myMethod(number);
+        System.out.println(number); // Imprime 5, pois a modificação ocorreu apenas no parâmetro
+    }
+}
+
+
+
+Passagem por referência: Nesse tipo de passagem de parâmetro, é passado o endereço de memória do objeto para o método, em vez de uma cópia do valor. Isso significa que qualquer modificação feita no parâmetro dentro do método afetará o objeto original. Nem todas as linguagens de programação suportam a passagem por referência, mas algumas, como C++ e C#, permitem que seja explicitamente indicado. Exemplo em C++:
+
+
+
+#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    void myMethod(int& x) { // Parâmetro passado por referência
+        x = x * 2; // Modifica o objeto original
+    }
+};
+
+int main() {
+    int number = 5;
+    MyClass obj;
+    obj.myMethod(number);
+    cout << number; // Imprime 10, pois a modificação afetou o objeto original
+    return 0;
+}
+
+
+
+
+
+Passagem por ponteiro: Similar à passagem por referência, mas em vez de passar a referência diretamente, é passado um ponteiro para o objeto. Isso requer manipulação explícita de ponteiros e é comum em linguagens como C e C++. Exemplo em C:
+
+
+
+#include <stdio.h>
+
+void myFunction(int* ptr) { // Parâmetro passado por ponteiro
+    (*ptr) = (*ptr) * 2; // Modifica o objeto original
+}
+
+int main() {
+    int number = 5;
+    myFunction(&number);
+    printf("%d", number); // Imprime 10, pois a modificação afetou o objeto original
+    return 0;
+}
+
+
+A escolha entre passagem por valor, referência ou ponteiro depende dos requisitos do programa, do comportamento desejado e das características da linguagem de programação utilizada.
