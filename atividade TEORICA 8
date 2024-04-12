@@ -1,0 +1,6 @@
+O método main é um ponto de entrada fundamental em muitas linguagens de programação, especialmente em Java e C#. Ele serve como o ponto de partida para a execução de um programa. Aqui está o objetivo principal do método main:
+
+Ponto de entrada: O método main é o ponto de entrada do programa. Quando você executa um programa, o sistema operacional inicia a execução do programa chamando o método main.
+Além disso, o método main também pode ter modificador de acesso private, protected ou internal em C#.
+
+Dentro do corpo do método main, você geralmente coloca a lógica principal do seu programa, como a inicialização de variáveis, a chamada de outros métodos, a interação com o usuário e assim por diante. É onde a execução do seu programa começa e é a partir daqui que o controle é passado para outras partes do seu código.
