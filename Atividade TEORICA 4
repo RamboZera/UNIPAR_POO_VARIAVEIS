@@ -1,0 +1,13 @@
+Em programação orientada a objetos (POO), uma classe é uma estrutura que define um tipo de objeto. Ela serve como um modelo ou uma planta baixa para criar objetos. Uma classe descreve os atributos (dados) que um objeto desse tipo pode ter e os métodos (comportamentos) que os objetos desse tipo podem executar. Ela define a estrutura e o comportamento comum a todos os objetos de um determinado tipo.
+
+Por outro lado, um objeto é uma instância concreta de uma classe. Quando você cria um objeto, está criando uma cópia da estrutura definida pela classe, com seus próprios valores para os atributos. Cada objeto tem seu próprio estado (valores dos atributos) e pode executar os métodos definidos pela classe.
+
+Por exemplo, considere uma classe "Carro". Esta classe pode ter atributos como "modelo", "cor" e "velocidade" e métodos como "acelerar", "frear" e "ligar". Com base nessa classe, você pode criar vários objetos, como "carro1", "carro2", etc., cada um com seus próprios valores para os atributos e capaz de executar os métodos definidos na classe.
+
+A relação entre classe e objeto pode ser entendida da seguinte maneira:
+
+Classe como uma planta baixa: Uma classe define a estrutura geral e o comportamento dos objetos de um determinado tipo. É como um modelo que pode ser usado para criar objetos.
+
+Objeto como uma instância da classe: Um objeto é uma cópia específica da estrutura definida pela classe. Ele representa uma entidade específica com seus próprios valores para os atributos e é capaz de executar os métodos definidos na classe.
+
+Em resumo, uma classe é a definição de um tipo de objeto, enquanto um objeto é uma instância concreta dessa classe. A relação entre classe e objeto é fundamental na programação orientada a objetos, pois permite a modelagem de entidades do mundo real de uma forma modular e reutilizável.
