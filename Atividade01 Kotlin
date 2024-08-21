@@ -1,0 +1,23 @@
+diversão Atividade01() {
+
+        val nome: String = "Andrey"
+        var idade: Int = 19
+        var altura: Duplo = 1,79
+        var ehEstudante: Boolean = false
+
+        println("Nome: $nome")
+        println("Idade: $idade anos")
+        println("Altura: $altura metros")
+        println("É estudante? $ehEstudante")
+
+        idade = 19
+        altura = 1,80
+        ehEstudante = true
+
+
+        println("\n--- Informações atualizadas ---")
+        println("Nome: $nome")
+        println("Idade: $idade anos")
+        println("Altura: $altura metros")
+        println("É estudante? $ehEstudante")
+}
