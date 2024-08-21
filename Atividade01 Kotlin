@@ -1,6 +1,6 @@
 diversão Atividade01() {
 
-        val nome: String = "Andrey"
+        val nome: String = "Rambo"
         var idade: Int = 19
         var altura: Duplo = 1,79
         var ehEstudante: Boolean = false
@@ -11,7 +11,7 @@ diversão Atividade01() {
         println("É estudante? $ehEstudante")
 
         idade = 19
-        altura = 1,80
+        altura = 1,70
         ehEstudante = true
 
 
