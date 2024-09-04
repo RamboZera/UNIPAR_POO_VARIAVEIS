@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite sua senha"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/checkPasswordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verificar Senha" />
+
+    <TextView
+        android:id="@+id/resultMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingTop="16dp" />
+
+</LinearLayout>
+
+package com.example.passwordchecker
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val correctPassword = "1234"
+
+        val passwordInput = findViewById<EditText>(R.id.passwordInput)
+        val checkPasswordButton = findViewById<Button>(R.id.checkPasswordButton)
+        val resultMessage = findViewById<TextView>(R.id.resultMessage)
+
+        checkPasswordButton.setOnClickListener {
+            val enteredPassword = passwordInput.text.toString()
+
+            if (enteredPassword == correctPassword) {
+                resultMessage.text = "Senha correta"
+            } else {
+                resultMessage.text = "Senha incorreta"
+            }
+        }
+    }
+}
