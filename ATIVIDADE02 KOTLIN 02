@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/number1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o primeiro número"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/number2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o segundo número"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Somar" />
+
+    <Button
+        android:id="@+id/subtractButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subtrair" />
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingTop="16dp" />
+
+</LinearLayout>
+
+package com.example.simplecalculator
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val number1 = findViewById<EditText>(R.id.number1)
+        val number2 = findViewById<EditText>(R.id.number2)
+        val addButton = findViewById<Button>(R.id.addButton)
+        val subtractButton = findViewById<Button>(R.id.subtractButton)
+        val resultText = findViewById<TextView>(R.id.resultText)
+
+        addButton.setOnClickListener {
+            val num1Str = number1.text.toString()
+            val num2Str = number2.text.toString()
+
+            if (num1Str.isNotEmpty() && num2Str.isNotEmpty()) {
+                val num1 = num1Str.toDouble()
+                val num2 = num2Str.toDouble()
+                val sum = num1 + num2
+
+                resultText.text = "Resultado: $sum"
+            } else {
+                resultText.text = "Por favor, insira ambos os números."
+            }
+        }
+
+        subtractButton.setOnClickListener {
+            val num1Str = number1.text.toString()
+            val num2Str = number2.text.toString()
+
+            if (num1Str.isNotEmpty() && num2Str.isNotEmpty()) {
+                val num1 = num1Str.toDouble()
+                val num2 = num2Str.toDouble()
+                val difference = num1 - num2
+
+                resultText.text = "Resultado: $difference"
+            } else {
+                resultText.text = "Por favor, insira ambos os números."
+            }
+        }
+    }
+}
