@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/heightInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite sua altura (em metros)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/weightInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite seu peso (em kg)"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular IMC" />
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingTop="16dp" />
+
+</LinearLayout>
+
+package com.example.imccalculator
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val heightInput = findViewById<EditText>(R.id.heightInput)
+        val weightInput = findViewById<EditText>(R.id.weightInput)
+        val calculateButton = findViewById<Button>(R.id.calculateButton)
+        val resultText = findViewById<TextView>(R.id.resultText)
+
+        calculateButton.setOnClickListener {
+            val heightStr = heightInput.text.toString()
+            val weightStr = weightInput.text.toString()
+
+            if (heightStr.isNotEmpty() && weightStr.isNotEmpty()) {
+                val height = heightStr.toDouble()
+                val weight = weightStr.toDouble()
+
+                val imc = weight / (height * height)
+
+                val category = when {
+                    imc < 18.5 -> "Abaixo do peso"
+                    imc in 18.5..24.9 -> "Peso normal"
+                    imc in 25.0..29.9 -> "Sobrepeso"
+                    else -> "Obesidade"
+                }
+
+                resultText.text = "Seu IMC é: %.2f\nCategoria: %s".format(imc, category)
+            } else {
+                resultText.text = "Por favor, insira a altura e o peso."
+            }
+        }
+    }
+}
