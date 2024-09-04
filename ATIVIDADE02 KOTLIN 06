@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/billAmountInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o valor da conta"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/tipPercentageInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite a porcentagem da gorjeta (ex.: 10)"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/calculateTipButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular Gorjeta" />
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingTop="16dp" />
+
+</LinearLayout>
+
+package com.example.tipcalculator
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val billAmountInput = findViewById<EditText>(R.id.billAmountInput)
+        val tipPercentageInput = findViewById<EditText>(R.id.tipPercentageInput)
+        val calculateTipButton = findViewById<Button>(R.id.calculateTipButton)
+        val resultText = findViewById<TextView>(R.id.resultText)
+
+        calculateTipButton.setOnClickListener {
+            val billAmountStr = billAmountInput.text.toString()
+            val tipPercentageStr = tipPercentageInput.text.toString()
+
+            if (billAmountStr.isNotEmpty() && tipPercentageStr.isNotEmpty()) {
+                val billAmount = billAmountStr.toDouble()
+                val tipPercentage = tipPercentageStr.toDouble()
+
+                val tipAmount = billAmount * (tipPercentage / 100)
+
+                val totalAmount = billAmount + tipAmount
+
+                resultText.text = "Gorjeta: R$ %.2f\nTotal: R$ %.2f".format(tipAmount, totalAmount)
+            } else {
+                resultText.text = "Por favor, insira o valor da conta e a porcentagem da gorjeta."
+            }
+        }
+    }
+}
