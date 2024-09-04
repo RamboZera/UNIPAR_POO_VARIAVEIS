@@ -1,0 +1,71 @@
+LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/valueInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o valor a ser convertido"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/conversionRateInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite a taxa de conversão (ex: 5.00)"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/convertButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Converter" />
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingTop="16dp" />
+
+</LinearLayout>
+
+package com.example.currencyconverter
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val valueInput = findViewById<EditText>(R.id.valueInput)
+        val conversionRateInput = findViewById<EditText>(R.id.conversionRateInput)
+        val convertButton = findViewById<Button>(R.id.convertButton)
+        val resultText = findViewById<TextView>(R.id.resultText)
+
+        convertButton.setOnClickListener {
+            val valueStr = valueInput.text.toString()
+            val conversionRateStr = conversionRateInput.text.toString()
+
+            if (valueStr.isNotEmpty() && conversionRateStr.isNotEmpty()) {
+                val value = valueStr.toDouble()
+                val conversionRate = conversionRateStr.toDouble()
+
+                val convertedValue = value * conversionRate
+
+                resultText.text = "Valor convertido: R$ ${String.format("%.2f", convertedValue)}"
+            } else {
+                resultText.text = "Por favor, insira o valor e a taxa de conversão."
+            }
+        }
+    }
+}
