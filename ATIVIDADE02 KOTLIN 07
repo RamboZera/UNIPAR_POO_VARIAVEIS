@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/guessInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite seu palpite"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/checkGuessButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verificar Palpite" />
+
+    <TextView
+        android:id="@+id/hintText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingTop="16dp" />
+
+</LinearLayout>
+
+package com.example.numberguessinggame
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import kotlin.random.Random
+
+class MainActivity : AppCompatActivity() {
+
+    private var randomNumber = 0 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        generateRandomNumber()
+
+        val guessInput = findViewById<EditText>(R.id.guessInput)
+        val checkGuessButton = findViewById<Button>(R.id.checkGuessButton)
+        val hintText = findViewById<TextView>(R.id.hintText)
+
+        checkGuessButton.setOnClickListener {
+            val guessStr = guessInput.text.toString()
+
+            if (guessStr.isNotEmpty()) {
+                val guess = guessStr.toInt()
+
+                when {
+                    guess < randomNumber -> hintText.text = "Seu palpite é muito baixo."
+                    guess > randomNumber -> hintText.text = "Seu palpite é muito alto."
+                    else -> {
+                        hintText.text = "Parabéns! Você acertou."
+                        generateRandomNumber() 
+                    }
+                }
+            } else {
+                hintText.text = "Por favor, insira um número."
+            }
+        }
+    }
+
+    private fun generateRandomNumber() {
+        randomNumber = Random.nextInt(1, 101)
+    }
+}
