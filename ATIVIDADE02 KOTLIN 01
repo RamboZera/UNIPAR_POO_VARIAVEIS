@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/ageInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insira sua idade"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/checkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verificar Idade" />
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingTop="16dp" />
+
+</LinearLayout>
+
+package com.example.idadechecker
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val ageInput = findViewById<EditText>(R.id.ageInput)
+        val checkButton = findViewById<Button>(R.id.checkButton)
+        val resultText = findViewById<TextView>(R.id.resultText)
+
+        checkButton.setOnClickListener {
+            val ageStr = ageInput.text.toString()
+            
+            if (ageStr.isNotEmpty()) {
+                val age = ageStr.toInt()
+
+                val message = when {
+                    age < 18 -> "Você é menor de idade."
+                    age in 18..60 -> "Você está na meia idade."
+                    else -> "Você é idoso."
+                }
+
+                resultText.text = message
+            } else {
+                resultText.text = "Por favor, insira uma idade válida."
+            }
+        }
+    }
+}
