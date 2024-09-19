@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextStudentName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome do Aluno" />
+
+    <EditText
+        android:id="@+id/editTextArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextStudentName"
+        android:hint="Área de Escolha" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextArea"
+        android:text="Adicionar" />
+
+    <RecyclerView
+        android:id="@+id/recyclerViewStudents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonAdd"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recyclerViewStudents"
+        android:text="Data: "
+        android:textSize="16sp"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/textViewCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewDate"
+        android:text="Quantidade de Alunos: 0"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewCount"
+        android:text="ZERAR"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>
+
+package com.example.studentlist
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
+import java.util.*
+
+class MainActivity : AppCompatActivity() {
+
+    private val students = mutableListOf<String>()
+    private lateinit var adapter: StudentAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        adapter = StudentAdapter(students)
+        recyclerViewStudents.layoutManager = LinearLayoutManager(this)
+        recyclerViewStudents.adapter = adapter
+
+        val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
+        textViewDate.text = "Data: $currentDate"
+
+        buttonAdd.setOnClickListener {
+            val name = editTextStudentName.text.toString()
+            val area = editTextArea.text.toString()
+            if (name.isNotEmpty() && area.isNotEmpty()) {
+                val studentInfo = "$name - $area"
+                students.add(studentInfo)
+                adapter.notifyDataSetChanged()
+                updateStudentCount()
+            }
+        }
+
+        buttonClear.setOnClickListener {
+            students.clear()
+            adapter.notifyDataSetChanged()
+            updateStudentCount()
+        }
+    }
+
+    package com.example.studentlist
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+
+class StudentAdapter(private val students: List<String>) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(android.R.layout.simple_list_item_1, parent, false)
+        return StudentViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
+        holder.studentName.text = students[position]
+    }
+
+    override fun getItemCount(): Int = students.size
+
+    class StudentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val studentName: TextView = itemView.findViewById(android.R.id.text1)
+    }
+}
