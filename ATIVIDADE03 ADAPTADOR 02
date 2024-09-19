@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <EditText
+        android:id="@+id/editTextHomens"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de Homens"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/editTextMulheres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de Mulheres"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/editTextCriancas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de Crianças"
+        android:inputType="number" />
+    <Button
+        android:id="@+id/buttonCalcular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular" />
+    <Button
+        android:id="@+id/buttonLimpar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Limpar" />
+    <TextView
+        android:id="@+id/textViewResultados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resultados:"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp" />
+</LinearLayout>
+package com.example.churrascometro
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        buttonCalcular.setOnClickListener {
+            calcular()
+        }
+        buttonLimpar.setOnClickListener {
+            limpar()
+        }
+    }
+    private fun calcular() {
+        val numHomens = editTextHomens.text.toString().toIntOrNull() ?: 0
+        val numMulheres = editTextMulheres.text.toString().toIntOrNull() ?: 0
+        val numCriancas = editTextCriancas.text.toString().toIntOrNull() ?: 0
+        val carneHomens = numHomens * 400
+        val carneMulheres = numMulheres * 300
+        val carneCriancas = numCriancas * 200
+        val carneTotal = (carneHomens + carneMulheres + carneCriancas) * 1.1
+        val aperitivosHomens = numHomens * 150
+        val aperitivosMulheres = numMulheres * 100
+        val aperitivosCriancas = numCriancas * 50
+        val aperitivosTotal = (aperitivosHomens + aperitivosMulheres + aperitivosCriancas) * 1.1
+        val bebidaAlcoolicaHomens = numHomens * 4.0
+        val bebidaAlcoolicaMulheres = numMulheres * 2.0
+        val bebidaAlcoolicaTotal = (bebidaAlcoolicaHomens + bebidaAlcoolicaMulheres) * 1.1
+        val aguaTotal = (numMulheres * 2 + numCriancas * 2) * 1.1
+        val refrigeranteTotal = (numMulheres * 1.5 + numCriancas * 1.5) * 1.1
+        val resultado = """
+            Carne: ${"%.1f".format(carneTotal)} g
+            Aperitivos: ${"%.1f".format(aperitivosTotal)} g
+            Bebida Alcoólica: ${"%.1f".format(bebidaAlcoolicaTotal)} L
+            Água: ${"%.1f".format(aguaTotal)} L
+            Refrigerante: ${"%.1f".format(refrigeranteTotal)} L
+        """.trimIndent()
+        textViewResultados.text = resultado
+    }
+    private fun limpar() {
+        editTextHomens.text.clear()
+        editTextMulheres.text.clear()
+        editTextCriancas.text.clear()
+        textViewResultados.text = "Resultados:"
+    }
+}
