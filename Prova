@@ -1,0 +1,50 @@
+class MainActivity :AppCompatActivity() {
+
+    private lateinit var saldoTextView: TextView
+    private lateinit var editValor: EditText
+    private lateinit var editDescricao: EditText
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var transacoesAdapter: TransacoesAdapter
+    private val transacoes = mutableListOf<Transacao>()
+    private var saldoTotal = 0.0
+
+    override fun <Button> onCreate(savedInstanceState: Bundle) {
+        super.onCREATE (savedInstanceState)
+        setContentView (layout.activity_main)
+
+        saldoTextView = findViewById(R.id.textSaldo)
+        editValor = findViewById(R.id.editValor)
+        editDescricao = findViewById(R.id.editDescricao)
+        recyclerView = findViewById(R.id.recyclerView)
+        transacoesAdapter = TransacoesAdapter(transacoes)
+
+        recyclerView.adapter = transacoesAdapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        findViewById <Button> (R.id.buttonAdicionar).setOnClickListener {
+            adicionarTransacao()
+        }
+    }
+
+    private fun adicionarTransacao() {
+        val valor = editValor.text.toString().toDoubleOrNull() ?: return
+        val descricao = editDescricao.text.toString()
+        val tipo = if (findViewById RadioButton (R.id.radioCredito).isChecked) "Crédito" else "Débito"
+
+        val transacao = Transacao(descricao, valor, tipo)
+        transacoes.add(transacao)
+
+        // Atualiza o saldo
+        saldoTotal += if (tipo == "Crédito") valor else -valor
+        atualizarSaldo()
+
+        // Limpa os campos
+        editValor.text.clear()
+        editDescricao.text.clear()
+        transacoesAdapter.notifyDataSetChanged()
+    }
+
+    private fun atualizarSaldo() {
+        saldoTextView.text = "Saldo: R$ %.2f".format(saldoTotal)
+    }
+}
